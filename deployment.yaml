@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javaservice
+  labels:
+    app: javaservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: javaservice
+  template:
+    metadata:
+      labels:
+        app: javaservice
+    spec:
+      containers:
+      - name: javaservice
+        image: tekstac/javaservice
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
